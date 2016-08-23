@@ -5,3 +5,8 @@
   tasks: 
     - include: roles/common/tasks/addUser.yml
     - include: roles/java/tasks/installJava.yml
+    - include: roles/jetty/tasks/installJetty.yml
+    - include: roles/jetty/tasks/deployJenkins.yml
+    - include: roles/jetty/tasks/deployGitbucket.yml
+    - include: roles/jetty/tasks/startJetty.yml
+

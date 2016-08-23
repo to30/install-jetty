@@ -1,6 +1,23 @@
 ---
+  - name: jetty グループ作成
+    group:
+      name={{ jetty_group_name }}
+      state=present
+      system=yes
+    when: jetty_group_create
+
   - name: jetty ユーザ作成
-    user: name=jetty uid=1404
+    user: 
+      name={{ jetty_user_login }}
+      state=present
+      comment='Jetty Web Server'
+      createhome=yes
+      group={{ jetty_group_name }}
+      home={{ jetty_user_homedir }}
+      shell=/bin/bash
+      system=yes
+    when: jetty_user_create
+
 
   - name: AnsibleのSSH公開鍵を登録
     authorized_key:
