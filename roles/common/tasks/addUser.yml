@@ -1,0 +1,13 @@
+---
+  - name: jetty ユーザ作成
+    user: name=jetty uid=1404
+
+  - name: AnsibleのSSH公開鍵を登録
+    authorized_key:
+      user: jetty
+      key: "{{ lookup('file', '/tmp/id_rsa.pub') }}"
+
+  - name: jettyユーザに sudo 権限付与
+    template: src=roles/common/templates/sudoers.j2 dest=/etc/sudoers.d/jetty
+
+
