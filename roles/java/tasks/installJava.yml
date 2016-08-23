@@ -1,0 +1,9 @@
+---
+  - name: yumでwgetをインストール
+    yum: name=wget state=latest
+
+  - name: yumでJDK1.8をインストール
+    yum: name=java-1.8.0-openjdk
+
+
+
